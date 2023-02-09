@@ -10,7 +10,10 @@ const menu = [
         key: '/public',
         icon: 'appstore',
         auth: [1],
-        subs: [{ title: '按钮', key: '/public/button', icon: '' }, { title: '图标', key: '/public/icon', icon: '' }]
+        subs: [
+            { title: '按钮', key: '/public/button', icon: '' },
+            { title: '图标', key: '/public/icon', icon: '' }
+        ]
     },
     {
         title: '导航',
@@ -72,6 +75,24 @@ const menu = [
     {
         title: '关于',
         key: '/about',
+        icon: 'user',
+        auth: [1]
+    },
+    {
+        title: '仪表盘',
+        key: '/DashBoard',
+        icon: 'user',
+        auth: [1]
+    },
+    {
+        title: '抵押',
+        key: '/stake',
+        icon: 'user',
+        auth: [1]
+    },
+    {
+        title: '债券',
+        key: '/Bond',
         icon: 'user',
         auth: [1]
     }

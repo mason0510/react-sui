@@ -45,11 +45,13 @@ class Login extends Component {
                 }
 
                 localStorage.setItem('user', JSON.stringify(values))
-                this.enterLoading()
-                this.timer = setTimeout(() => {
-                    message.success('登录成功!')
-                    this.props.history.push('/')
-                }, 2000)
+                this.props.history.push('/')
+                message.success('登录成功!')
+                // this.enterLoading()
+                // this.timer = setTimeout(() => {
+                //     message.success('登录成功!')
+                //     this.props.history.push('/')
+                // }, 2000)
             }
         })
     }

@@ -99,3 +99,12 @@ yarn build
 ### 改造项目
 
 ### 增加钱包连接
+
+vite使用
+https://vitejs.dev/guide/
+https://github.com/suiet/wallet-kit
+https://github.com/MystenLabs/sui/blob/main/doc/src/explore/wallet-browser.md
+https://github.com/suiet/wallet-adapter
+https://kit.suiet.app/docs/QuickStart
+https://1x.ant.design/docs/react/getting-started
+https://ant.design/components/menu-cn#components-menu-demo-horizontal

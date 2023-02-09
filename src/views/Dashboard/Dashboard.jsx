@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, Divider } from 'antd'
 import CustomBreadcrumb from '@/components/CustomBreadcrumb'
 
-const AboutView = () => (
+const Dashboard = () => (
     <Layout>
         <div>
             <CustomBreadcrumb arr={['关于']}></CustomBreadcrumb>
@@ -16,4 +16,4 @@ const AboutView = () => (
         </div>
     </Layout>
 )
-export default AboutView
+export default Dashboard
