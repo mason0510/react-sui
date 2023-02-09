@@ -17,7 +17,7 @@ class Login extends Component {
     }
 
     handleSubmit = e => {
-        e.preventDefault()
+        //e.preventDefault()
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 // let { username, password } = values
@@ -47,6 +47,7 @@ class Login extends Component {
                 localStorage.setItem('user', JSON.stringify(values))
                 this.props.history.push('/')
                 message.success('登录成功!')
+                localStorage.setItem('user', JSON.stringify(values))
                 // this.enterLoading()
                 // this.timer = setTimeout(() => {
                 //     message.success('登录成功!')
@@ -62,12 +63,22 @@ class Login extends Component {
             duration: null,
             description: '账号 admin(管理员) 其他(游客) 密码随意'
         })
+        const username = 'admin'
+        const password = 'admin'
+        if (username && password) {
+            this.setState({ loading: true })
+            // 调用登录接口进行自动登录
+            // 跳转到首页
+            this.handleSubmit()
+        }
     }
 
     componentWillUnmount() {
         notification.destroy()
         this.timer && clearTimeout(this.timer)
     }
+
+    //如何自动调用这个方法handleSubmit
 
     render() {
         const { getFieldDecorator } = this.props.form

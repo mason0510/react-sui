@@ -24,7 +24,9 @@ class DefaultLayout extends Component {
 
     isLogin = () => {
         if (!localStorage.getItem('user')) {
+            //不管获取到用户或者没有获取到用户都要跳转到主页面
             this.props.history.push('/login')
+            // this.props.history.push('/index')
         } else {
             this.setState({
                 menu: this.getMenu(menu)
@@ -128,9 +130,4 @@ const dispatchToProp = dispatch => ({
     }
 })
 
-export default withRouter(
-    connect(
-        stateToProp,
-        dispatchToProp
-    )(DefaultLayout)
-)
+export default withRouter(connect(stateToProp, dispatchToProp)(DefaultLayout))
