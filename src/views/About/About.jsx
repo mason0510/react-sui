@@ -6,6 +6,7 @@ const AboutView = () => (
     <Layout>
         <div>
             <CustomBreadcrumb arr={['关于']}></CustomBreadcrumb>
+            <h1>关于suiWallet钱包</h1>
         </div>
         <div className='base-style'>
             <h3>关于作者</h3>

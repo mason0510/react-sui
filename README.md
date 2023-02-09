@@ -96,10 +96,6 @@ yarn build
 
 ```
 
-### 截图
+### 改造项目
 
-![image](https://raw.githubusercontent.com/ltadpoles/react-admin/master/src/assets/images/index.jpg)
-
-![image](https://raw.githubusercontent.com/ltadpoles/react-admin/master/src/assets/images/form.jpg)
-
-![image](https://raw.githubusercontent.com/ltadpoles/react-admin/master/src/assets/images/editor.jpg)
+### 增加钱包连接
