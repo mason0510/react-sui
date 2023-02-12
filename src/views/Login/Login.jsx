@@ -46,7 +46,7 @@ class Login extends Component {
 
                 localStorage.setItem('user', JSON.stringify(values))
                 this.props.history.push('/')
-                message.success('登录成功!')
+                // message.success('登录成功!')
                 localStorage.setItem('user', JSON.stringify(values))
                 // this.enterLoading()
                 // this.timer = setTimeout(() => {
@@ -59,7 +59,7 @@ class Login extends Component {
 
     componentDidMount() {
         notification.open({
-            message: '欢迎使用后台管理平台',
+            message: '欢迎',
             duration: null,
             description: '账号 admin(管理员) 其他(游客) 密码随意'
         })
@@ -86,7 +86,7 @@ class Login extends Component {
             <Layout className='login animated fadeIn'>
                 <div className='model'>
                     <div className='login-form'>
-                        <h3>后台管理系统</h3>
+                        <h3>sui</h3>
                         <Divider />
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Item>
