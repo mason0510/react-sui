@@ -60,9 +60,6 @@
 ### 使用方法
 
 ```npm
-git clone https://github.com/ltadpoles/react-admin.git
-
-cd react-admin
 
 // 安装依赖
 yarn
