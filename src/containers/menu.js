@@ -77,25 +77,25 @@ const menu = [
         key: '/about',
         icon: 'user',
         auth: [1]
-    },
-    {
-        title: '仪表盘',
-        key: '/DashBoard',
-        icon: 'user',
-        auth: [1]
-    },
-    {
-        title: '抵押',
-        key: '/stake',
-        icon: 'user',
-        auth: [1]
-    },
-    {
-        title: '债券',
-        key: '/Bond',
-        icon: 'user',
-        auth: [1]
     }
+    // {
+    //     title: '仪表盘',
+    //     key: '/DashBoard',
+    //     icon: 'user',
+    //     auth: [1]
+    // },
+    // {
+    //     title: '抵押',
+    //     key: '/stake',
+    //     icon: 'user',
+    //     auth: [1]
+    // },
+    // {
+    //     title: '债券',
+    //     key: '/Bond',
+    //     icon: 'user',
+    //     auth: [1]
+    // }
 ]
 
 export default menu

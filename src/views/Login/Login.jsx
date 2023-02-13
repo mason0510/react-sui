@@ -44,15 +44,15 @@ class Login extends Component {
                         values.auth = 1
                 }
 
-                localStorage.setItem('user', JSON.stringify(values))
-                this.props.history.push('/')
+                // localStorage.setItem('user', JSON.stringify(values))
+                // this.props.history.push('/')
                 // message.success('登录成功!')
                 localStorage.setItem('user', JSON.stringify(values))
-                // this.enterLoading()
-                // this.timer = setTimeout(() => {
-                //     message.success('登录成功!')
-                //     this.props.history.push('/')
-                // }, 2000)
+                this.enterLoading()
+                this.timer = setTimeout(() => {
+                    message.success('登录成功!')
+                    this.props.history.push('/')
+                }, 2000)
             }
         })
     }
