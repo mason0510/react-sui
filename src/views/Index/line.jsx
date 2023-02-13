@@ -57,7 +57,7 @@ class Line extends Component {
         })
     }
     render() {
-        return <div id='line' style={{ height: 300 }}></div>
+        return <div id='line' style={{ height: 0 }}></div>
     }
 }
 

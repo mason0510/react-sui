@@ -29,6 +29,9 @@ const UploadView = loadable(() => import(/* webpackChunkName: 'upload' */ '@/vie
 
 const Three = loadable(() => import(/* webpackChunkName: 'three' */ '@/views/TestView'))
 const About = loadable(() => import(/* webpackChunkName: 'about' */ '@/views/About'))
+const Bond = loadable(() => import(/* webpackChunkName: 'about' */ '@/views/Bond'))
+const Staking = loadable(() => import(/* webpackChunkName: 'about' */ '@/views/Staking'))
+const Dashboard = loadable(() => import(/* webpackChunkName: 'about' */ '@/views/Dashboard'))
 
 const routes = [
     { path: '/index', exact: true, name: 'Index', component: Index, auth: [1] },
@@ -48,7 +51,10 @@ const routes = [
     { path: '/others/editor', exact: false, name: '富文本', component: EditorView, auth: [1] },
     { path: '/others/upload', exact: false, name: '上传', component: UploadView, auth: [1] },
     { path: '/one/two/three', exact: false, name: '三级', component: Three },
-    { path: '/about', exact: false, name: '关于', component: About, auth: [1] }
+    { path: '/about', exact: false, name: '关于', component: About, auth: [1] },
+    { path: '/bond', exact: false, name: '债券', component: Bond, auth: [1] },
+    { path: '/staking', exact: false, name: '抵押', component: Staking, auth: [1] },
+    { path: '/dashBoard', exact: false, name: '仪表盘', component: Dashboard, auth: [1] }
 ]
 
 export default routes

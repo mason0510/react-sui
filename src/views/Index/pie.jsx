@@ -46,7 +46,7 @@ class Pie extends Component {
         })
     }
     render() {
-        return <div id='pie' style={{ height: 300 }}></div>
+        return <div id='pie' style={{ height: 0 }}></div>
     }
 }
 

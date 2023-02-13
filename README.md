@@ -84,3 +84,27 @@ https://github.com/suiet/wallet-adapter
 https://kit.suiet.app/docs/QuickStart
 https://1x.ant.design/docs/react/getting-started
 https://ant.design/components/menu-cn#components-menu-demo-horizontal
+
+
+import React, { Component } from 'react'
+import { Layout, Icon } from 'antd'
+import screenfull from 'screenfull'
+class Index extends Component {
+fullToggle = () => {
+if (screenfull.isEnabled) {
+screenfull.request(document.getElementById('bar'))
+}
+}
+render() {
+return (
+<Layout className='index animated fadeIn'>
+<div className='bar-header'>
+<div>主要功能：抵押 债券 等方式一揽子的形式发行稳定币</div>
+<Icon type='fullscreen' style={{ cursor: 'pointer' }} onClick={this.fullToggle} />
+</div>
+</Layout>
+)
+}
+}
+
+export default Index
