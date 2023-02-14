@@ -12,6 +12,7 @@ import '@/style/layout.scss'
 import AppHeader from './AppHeader.jsx'
 import AppAside from './AppAside.jsx'
 import AppFooter from './AppFooter.jsx'
+import { useWallet } from '@suiet/wallet-kit'
 
 const { Content } = Layout
 
@@ -20,6 +21,34 @@ class DefaultLayout extends Component {
         avatar,
         show: true,
         menu: []
+    }
+
+    async handleSignAndExecuteTx() {
+        const wallet = useWallet()
+        if (!wallet.connected) return
+        try {
+            const resData = await wallet.signAndExecuteTransaction({
+                transaction: {
+                    kind: 'moveCall',
+                    data: {
+                        packageObjectId: '0x2',
+                        module: 'devnet_nft',
+                        function: 'mint',
+                        typeArguments: [],
+                        arguments: [
+                            'name',
+                            'capy',
+                            'https://cdn.britannica.com/94/194294-138-B2CF7780/overview-capybara.jpg?w=800&h=450&c=crop'
+                        ],
+                        gasBudget: 10000
+                    }
+                }
+            })
+            console.log('nft minted successfully!', resData)
+            alert('congrats, a cute capybara comes to you!')
+        } catch (e) {
+            console.error('nft mint failed', e)
+        }
     }
 
     isLogin = () => {
@@ -56,19 +85,6 @@ class DefaultLayout extends Component {
 
     componentDidUpdate() {
         let { pathname } = this.props.location
-
-        // 菜单收缩展开时 echarts 图表的自适应
-        if (pathname === '/' || pathname === '/index') {
-            this.timer = setTimeout(() => {
-                echarts.init(document.getElementById('bar')).resize()
-                echarts.init(document.getElementById('line')).resize()
-                echarts.init(document.getElementById('pie')).resize()
-                echarts.init(document.getElementById('pictorialBar')).resize()
-                echarts.init(document.getElementById('scatter')).resize()
-            }, 500)
-        } else {
-            this.timer = null
-        }
     }
 
     componentWillUnmount() {
@@ -76,20 +92,14 @@ class DefaultLayout extends Component {
     }
 
     render() {
-        let { menuClick, menuToggle } = this.props
+        let { menuToggle } = this.props
         let { auth } = JSON.parse(localStorage.getItem('user')) ? JSON.parse(localStorage.getItem('user')) : ''
         return (
             <Layout className='app'>
                 <BackTop />
                 <AppAside menuToggle={menuToggle} menu={this.state.menu} />
                 <Layout style={{ marginLeft: menuToggle ? '80px' : '200px', minHeight: '100vh' }}>
-                    <AppHeader
-                        menuToggle={menuToggle}
-                        menuClick={menuClick}
-                        avatar={this.state.avatar}
-                        show={this.state.show}
-                        loginOut={this.loginOut}
-                    />
+                    <AppHeader handleSignAndExecuteTx={this.handleSignAndExecuteTx} />
                     <Content className='content'>
                         <Switch>
                             {routes.map(item => {
@@ -124,10 +134,6 @@ const stateToProp = state => ({
     menuToggle: state.menuToggle
 })
 
-const dispatchToProp = dispatch => ({
-    menuClick() {
-        dispatch(menuToggleAction())
-    }
-})
+const dispatchToProp = dispatch => ({})
 
 export default withRouter(connect(stateToProp, dispatchToProp)(DefaultLayout))
