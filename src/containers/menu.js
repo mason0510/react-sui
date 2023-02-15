@@ -91,7 +91,7 @@ const menu = [
         auth: [1]
     },
     {
-        title: '组件测试',
+        title: '关于',
         key: '/about',
         icon: 'user',
         auth: [1]

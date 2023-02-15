@@ -12,7 +12,6 @@ import '@/style/layout.scss'
 import AppHeader from './AppHeader.jsx'
 import AppAside from './AppAside.jsx'
 import AppFooter from './AppFooter.jsx'
-import { useWallet } from '@suiet/wallet-kit'
 
 const { Content } = Layout
 
@@ -21,34 +20,6 @@ class DefaultLayout extends Component {
         avatar,
         show: true,
         menu: []
-    }
-
-    async handleSignAndExecuteTx() {
-        const wallet = useWallet()
-        if (!wallet.connected) return
-        try {
-            const resData = await wallet.signAndExecuteTransaction({
-                transaction: {
-                    kind: 'moveCall',
-                    data: {
-                        packageObjectId: '0x2',
-                        module: 'devnet_nft',
-                        function: 'mint',
-                        typeArguments: [],
-                        arguments: [
-                            'name',
-                            'capy',
-                            'https://cdn.britannica.com/94/194294-138-B2CF7780/overview-capybara.jpg?w=800&h=450&c=crop'
-                        ],
-                        gasBudget: 10000
-                    }
-                }
-            })
-            console.log('nft minted successfully!', resData)
-            alert('congrats, a cute capybara comes to you!')
-        } catch (e) {
-            console.error('nft mint failed', e)
-        }
     }
 
     isLogin = () => {

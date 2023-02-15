@@ -1,13 +1,19 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import App from './App'
-import { Provider } from 'react-redux'
+import './index.css'
+import { WalletProvider, Chain, SuiDevnetChain } from '@suiet/wallet-kit'
 import store from './store'
+import { Provider } from 'react-redux'
 
-const AppView = (
-    <Provider store={store}>
-        <App />
-    </Provider>
+const SupportedChains: Chain[] = [SuiDevnetChain]
+const SupportedWallets: string[] = ['suiet']
+const autoConnect = true
+
+createRoot(document.getElementById('root')).render(
+    <WalletProvider chains={SupportedChains} defaultWallets={SupportedWallets}>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </WalletProvider>
 )
-
-ReactDOM.render(AppView, document.getElementById('root'))
